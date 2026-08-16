@@ -8,3 +8,10 @@ __pycache__/
 # caches
 *.log
 *.zip
+
+# Android Studio / Gradle generated state
+.idea/
+.gradle/
+**/.idea/
+**/.gradle/
+**/build/
