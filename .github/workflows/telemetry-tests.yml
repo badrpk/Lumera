@@ -1,0 +1,21 @@
+name: Lumera telemetry tests
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  telemetry:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ['3.11', '3.12', '3.13']
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Install pytest
+        run: python -m pip install pytest
+      - name: Run telemetry tests
+        run: python -m pytest -q test_telemetry.py
